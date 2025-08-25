@@ -6,3 +6,25 @@ on:
     branches:
       - main
       - develop
+
+env:
+  AWS_REGION: us-east-1
+  REPOSITORY: impulsum-ai-frontend-prod
+  APP_VERSION: sha-${{ github.sha }}
+
+permissions:
+  id-token: write
+  contents: read
+  deployments: write
+  statuses: write  
+
+jobs:
+  build-and-push-docker:
+    name: Build and push docker image
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
