@@ -1,4 +1,8 @@
-name: Build
+# This is a basic workflow to help you get started with Actions
 
+name: build
+
+# Controls when the workflow will run
 on:
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
